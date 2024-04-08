@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --line-border-circle-fill: #9a00c9;
+    --line-border-empty: #d9d9d9;
+    --circle-empty: #f4f2f2;
+    --text-color-light: #f4f2f2;
+    --text-color-dark: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    min-width: 350px;
+    max-width: 100%;
+}
+
+.progress-container::before {
+    content: '';
+    background-color: var(--line-border-empty);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--line-border-circle-fill);
+    height: 4px;
+    width: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.circle {
+    background-color: var(--circle-empty);
+    border: 3px solid var(--line-border-empty);
+    margin-right: 40px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .6s ease-out;
+}
+
+.circle:last-of-type {
+    margin-right: 0;
+}
+
+
+.circle.active {
+
+    border: 3px solid var(--line-border-circle-fill);
+    color: var(--text-color-dark)
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--line-border-circle-fill);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color-light);
+    cursor: pointer;
+    margin: 1rem;
+    padding: 0.5rem 2rem;
+}
+
+.btn:hover {
+    background-color: #4f0067;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+btn:focus {
+    outline: none;
+}
+
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    color: var(--text-color-dark);
+    cursor: not-allowed;
+    transform: none;
+}
